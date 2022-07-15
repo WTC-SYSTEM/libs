@@ -1,4 +1,4 @@
-module github.com/WTC-SYSTEM/wtc_system/apperror
+module github.com/WTC-SYSTEM/apperror
 
 go 1.18
 
