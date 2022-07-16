@@ -27,7 +27,7 @@ func Middleware(h appHandler) http.HandlerFunc {
 				return
 			}
 			w.WriteHeader(418)
-			_ = encoder.Encode(fromError(err))
+			_ = encoder.Encode(FromError(err))
 			return
 		}
 	}

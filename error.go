@@ -40,15 +40,15 @@ func (e *AppError) Marshal() []byte {
 }
 
 func BadRequestError(message string) *AppError {
-	return NewAppError(message, WTC_000002, "some thing wrong with user data")
+	return NewAppError(message, WTC000002, "Some thing wrong with user data")
 }
 
-func systemError(developerMessage string) *AppError {
-	return NewAppError("system error", WTC_000001, developerMessage)
+func SystemError(developerMessage string) *AppError {
+	return NewAppError("System error", WTC000001, developerMessage)
 }
 
-func fromError(err error) *AppError {
-	return NewAppError("Something went wrong...", WTC_000001, err.Error())
+func FromError(err error) *AppError {
+	return NewAppError("Something went wrong...", WTC000001, err.Error())
 }
 
 func APIError(code, message, developerMessage string) *AppError {
