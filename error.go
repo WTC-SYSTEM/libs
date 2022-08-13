@@ -6,7 +6,8 @@ import (
 )
 
 var (
-	ErrNotFound = NewAppError("not found", "WTC-000003", "")
+	ErrNotFound = NewAppError("not found", WTC000003, "")
+	EmailIsRegistered = NewAppError("email is already registered", WTC000004, "")
 )
 
 type AppError struct {
@@ -16,10 +17,10 @@ type AppError struct {
 	Code             string `json:"code,omitempty"`
 }
 
-func NewAppError(message, code, developerMessage string) *AppError {
+func NewAppError(message string, code WtcError, developerMessage string) *AppError {
 	return &AppError{
 		Err:              fmt.Errorf(message),
-		Code:             code,
+		Code:             code.String(),
 		Message:          message,
 		DeveloperMessage: developerMessage,
 	}
@@ -51,6 +52,6 @@ func FromError(err error) *AppError {
 	return NewAppError("Something went wrong...", WTC000001, err.Error())
 }
 
-func APIError(code, message, developerMessage string) *AppError {
+func APIError(code WtcError, message, developerMessage string) *AppError {
 	return NewAppError(message, code, developerMessage)
 }
