@@ -6,7 +6,7 @@ import (
 )
 
 var (
-	ErrNotFound = NewAppError("not found", WTC000003, "")
+	ErrNotFound       = NewAppError("not found", WTC000003, "")
 	EmailIsRegistered = NewAppError("email is already registered", WTC000004, "")
 )
 
@@ -41,7 +41,7 @@ func (e *AppError) Marshal() []byte {
 }
 
 func BadRequestError(message string) *AppError {
-	return NewAppError(message, WTC000002, "Some thing wrong with user data")
+	return NewAppError(message, WTC000002, "Some thing wrong with data")
 }
 
 func SystemError(developerMessage string) *AppError {
@@ -50,6 +50,10 @@ func SystemError(developerMessage string) *AppError {
 
 func FromError(err error) *AppError {
 	return NewAppError("Something went wrong...", WTC000001, err.Error())
+}
+
+func ErrorWithMessage(err error, message string) *AppError {
+	return NewAppError("", WTC000001, message)
 }
 
 func APIError(code WtcError, message, developerMessage string) *AppError {
