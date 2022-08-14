@@ -7,7 +7,7 @@ import (
 
 var (
 	ErrNotFound       = NewAppError("not found", WTC000003, "")
-	EmailIsRegistered = NewAppError("email is already registered", WTC000004, "")
+	ErrEmailIsRegistered = NewAppError("email is already registered", WTC000004, "")
 )
 
 type AppError struct {
