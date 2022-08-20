@@ -5,11 +5,6 @@ import (
 	"fmt"
 )
 
-var (
-	ErrNotFound       = NewAppError("not found", WTC000003, "")
-	ErrEmailIsRegistered = NewAppError("email is already registered", WTC000004, "")
-)
-
 type AppError struct {
 	Err              error  `json:"-"`
 	Message          string `json:"message,omitempty"`
