@@ -17,7 +17,7 @@ const (
 	WTC000004
 	// WTC000005 Invalid email or password
 	WTC000005
-	// WTC000006 
+	// WTC000006 Passwords do not match
 	WTC000006
 )
 
